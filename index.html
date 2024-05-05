@@ -9,10 +9,10 @@
           rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
           crossorigin="anonymous">
-    <style>
-        /* Custom CSS for background image section */
-        .bg-image {
-            background-image: url('./assets/img/sikin.png'); /* Relative path to the image */
+          <style>
+            /* Custom CSS for background image section */
+            .bg-image {
+            background-image: url('./assets/img/diwata-3.jpg'); /* Relative path to the image */
             background-repeat: no-repeat;
             background-size: cover;
             height: 100vh; /* Full viewport height */
@@ -22,7 +22,48 @@
             color: white;
             text-align: center; /* Center text horizontally */
         }
-    </style>
+
+        /* Media query for medium screens */
+        @media (max-width: 768px) {
+            .bg-image {
+                background-position: center; /* Center background image horizontally */
+            }
+        }
+
+        /* Media query for small screens (e.g., mobile phones) */
+        @media (max-width: 576px) {
+            .bg-image {
+                background-position: center; /* Center background image horizontally */
+            }
+        }
+    
+            /* Styling for the heading */
+            .landing-heading {
+                font-size: 3.5rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                margin-bottom: 20px;
+            }
+    
+            /* Styling for the button */
+            .landing-button {
+                font-size: 1.5rem;
+                font-weight: bold;
+                padding: 12px 24px;
+                border-radius: 25px;
+                background-color: #ff5c00;
+                color: white;
+                border: none;
+                transition: background-color 0.3s ease;
+            }
+    
+            /* Hover effect for the button */
+            .landing-button:hover {
+                background-color: #e04700;
+            }
+        </style>
 </head>
 <body>
 
@@ -31,27 +72,47 @@
     <div class="container">
         <a class="navbar-brand" href="#">
             <img src="assets/diwata-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-            Diwata Pares Overload
+            Diwata Pares Overload, Inc.
         </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">FAQs</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+            </ul>
+        </div>
     </div>
 </nav>
 
 <!-- Button to Trigger Modal -->
 <div class="bg-image">
     <div class="container">
-        <h1 class="display-4 text-white">Diwata Pares Overload</h1>
-        <button type="button" class="btn btn-primary btn-lg mt-4" onclick="openOrderModal()">Order Now!</button>
+        <h1 class="landing-heading">Diwata Pares Overload</h1>
+        <button type="button" class="btn btn-primary btn-lg landing-button mt-4" onclick="openOrderModal()">Order Now!</button>
     </div>
 </div>
 
-<!-- Order Modal -->
+ <!-- Footer -->
+ <footer class="py-3 my-4 bg-light">
+    <div class="container">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body">Pricing</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body">FAQs</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body">About</a></li>
+        </ul>
+        <p class="text-center text-muted">© 2024 Diwata Pares Overload, Inc.</p>
+    </div>
+</footer>
+
+<!-- Modal -->
 <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="orderModalLabel">Order Form - Step 1 of 4</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
             <div class="modal-body">
                 <!-- Dynamic content placeholder for steps -->
             </div>
@@ -64,12 +125,12 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="paymentSuccessModalLabel">Payment Successful</h5>
+                <h5 class="modal-title text-success" id="paymentSuccessModalLabel">Payment Successful</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <p>Thank you!</p>
-                <p>For trusting our product.</p>
+                <p>For trusting our product. Pakkk!</p>
             </div>
         </div>
     </div>
@@ -153,7 +214,46 @@
                         <label for="product2" class="form-check-label">Diwata Fried Siken</label>
                         <input type="number" id="quantity2" name="quantity" min="1" value="1" class="form-control ms-2" style="width: 70px;">
                     </div>
-                    <!-- Add more product checkboxes here -->
+                    <div class="form-check">
+                        <input type="checkbox" id="product3" name="product" value="Diwata Lugaw Plain" class="form-check-input">
+                        <label for="product3" class="form-check-label">Diwata Lugaw Plain</label>
+                        <input type="number" id="quantity3" name="quantity" min="1" value="1" class="form-control ms-2" style="width: 70px;">
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="product4" name="product" value="Diwata Lugaw Premium" class="form-check-input">
+                        <label for="product4" class="form-check-label">Diwata Lugaw Premium</label>
+                        <input type="number" id="quantity4" name="quantity" min="1" value="1" class="form-control ms-2" style="width: 70px;">
+                    </div>
+                </div>
+                <button type="button" class="btn btn-secondary me-2" onclick="backStep()">Back</button>
+                <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+            `;
+        } else if (step === 4) {
+            // Step 4: Choose payment method and enter payment details
+            modalBody.innerHTML = `
+                <h5>Order Form - Step 4 of 4</h5>
+                <div class="mb-3">
+                    <label for="paymentMethod" class="form-label">Payment Method</label><br>
+                    <input type="radio" id="creditCard" name="paymentMethod" value="creditCard" onclick="showCreditCardFields()">
+                    <label for="creditCard">Credit Card</label>
+                    <input type="radio" id="paypal" name="paymentMethod" value="paypal" onclick="hideCreditCardFields()">
+                    <label for="paypal">PayPal</label>
+                    <input type="radio" id="cashOnDelivery" name="paymentMethod" value="cashOnDelivery" onclick="hideCreditCardFields()">
+                    <label for="cashOnDelivery">Cash on Delivery</label>
+                </div>
+                <div id="creditCardFields" style="display: none;">
+                    <div class="mb-3">
+                        <label for="cardNumber" class="form-label">Card Number</label>
+                        <input type="text" class="form-control" id="cardNumber" placeholder="Enter card number">
+                    </div>
+                    <div class="mb-3">
+                        <label for="expiryDate" class="form-label">Expiry Date</label>
+                        <input type="text" class="form-control" id="expiryDate" placeholder="MM/YYYY">
+                    </div>
+                    <div class="mb-3">
+                        <label for="cvv" class="form-label">CVV</label>
+                        <input type="text" class="form-control" id="cvv" placeholder="Enter CVV">
+                    </div>
                 </div>
                 <button type="button" class="btn btn-secondary me-2" onclick="backStep()">Back</button>
                 <button type="button" class="btn btn-primary" onclick="placeOrder()">Place Order</button>
@@ -161,6 +261,12 @@
         }
 
         currentStep = step;
+    }
+    function openOrderModal() {
+        currentStep = 1;
+        renderModalContent(currentStep);
+        const modal = new bootstrap.Modal(document.getElementById('orderModal'));
+        modal.show();
     }
 
     function openOrderModal() {
@@ -178,6 +284,14 @@
         renderModalContent(currentStep - 1);
     }
 
+    function showCreditCardFields() {
+        document.getElementById('creditCardFields').style.display = 'block';
+    }
+
+    function hideCreditCardFields() {
+        document.getElementById('creditCardFields').style.display = 'none';
+    }
+
     function toggleDeliveryPickup(type) {
         const deliveryAddress = document.getElementById('deliveryAddress');
         const pickupLocation = document.getElementById('pickupLocation');
@@ -191,6 +305,7 @@
         }
     }
 
+
     function placeOrder() {
         // Close the Order Form modal if open
         const orderModal = document.getElementById('orderModal');
@@ -201,7 +316,7 @@
 
         // Simulate loading spinner for 3 seconds
         const placeOrderButton = document.querySelector('.btn-primary');
-        placeOrderButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Placing Order...';
+        placeOrderButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> The Diwata is now placing your order...';
         placeOrderButton.disabled = true;
 
         setTimeout(function() {
