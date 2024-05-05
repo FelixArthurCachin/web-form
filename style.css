@@ -1,0 +1,69 @@
+
+            /* Custom CSS for background image section */
+            .bg-image {
+            background-image: url('./assets/img/diwata-3.jpg'); /* Relative path to the image */
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center; /* Center text horizontally */
+        }
+
+        /* Media query for medium screens */
+        @media (max-width: 768px) {
+            .bg-image {
+                background-position: center; /* Center background image horizontally */
+            }
+        }
+
+        /* Media query for small screens (e.g., mobile phones) */
+        @media (max-width: 576px) {
+            .bg-image {
+                background-position: center; /* Center background image horizontally */
+            }
+        }
+    
+            /* Styling for the heading */
+            .landing-heading {
+                font-size: 3.5rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                margin-bottom: 20px;
+            }
+    
+            /* Styling for the button */
+            .landing-button {
+                font-size: 1.5rem;
+                font-weight: bold;
+                padding: 12px 24px;
+                border-radius: 25px;
+                background-color: #ff5c00;
+                color: white;
+                border: none;
+                transition: background-color 0.3s ease;
+            }
+    
+            /* Hover effect for the button */
+            .landing-button:hover {
+                background-color: #e04700;
+            }
+            /* Centered and responsive iframe container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio (height / width) */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
