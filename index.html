@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ITE 232</title>
+    <title>Diwata Pares Overload</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -26,51 +26,198 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="assets/diwata-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-                Diwata Pares Overload
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">FAQs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                </ul>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="assets/diwata-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            Diwata Pares Overload
+        </a>
+    </div>
+</nav>
+
+<!-- Button to Trigger Modal -->
+<div class="bg-image">
+    <div class="container">
+        <h1 class="display-4 text-white">Diwata Pares Overload</h1>
+        <button type="button" class="btn btn-primary btn-lg mt-4" onclick="openOrderModal()">Order Now!</button>
+    </div>
+</div>
+
+<!-- Order Modal -->
+<div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="orderModalLabel">Order Form - Step 1 of 4</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Dynamic content placeholder for steps -->
             </div>
         </div>
-    </nav>
+    </div>
+</div>
 
-    <!-- Section with Background Image -->
-    <div class="bg-image">
-        <div class="container">
-            <h1 class="display-4 text-white">Diwata Pares Overload</h1>
-            <a href="#" class="btn btn-primary btn-lg mt-4">Order Now!</a>
+<!-- Payment Success Modal -->
+<div class="modal fade" id="paymentSuccessModal" tabindex="-1" aria-labelledby="paymentSuccessModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="paymentSuccessModalLabel">Payment Successful</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Thank you!</p>
+                <p>For trusting our product.</p>
+            </div>
         </div>
     </div>
+</div>
 
-    <!-- Footer -->
-    <footer class="py-3 my-4 bg-light">
-        <div class="container">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body">Pricing</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body">FAQs</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body">About</a></li>
-            </ul>
-            <p class="text-center text-muted">© 2024 Diwata Pares Overload</p>
-        </div>
-    </footer>
+<!-- Bootstrap JS (including Popper.js) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
-    <!-- Bootstrap JS (including Popper.js) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
+<!-- Custom JavaScript for Modal Navigation -->
+<script>
+    let currentStep = 1;
+
+    function renderModalContent(step) {
+        const modalBody = document.querySelector('.modal-body');
+
+        if (step === 1) {
+            // Step 1: Display basic user information form
+            modalBody.innerHTML = `
+                <h5>Order Form - Step 1 of 4</h5>
+                <form id="orderFormStep1">
+                    <div class="mb-3">
+                        <label for="fullname" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="fullname" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email address" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+                </form>
+            `;
+        } else if (step === 2) {
+            // Step 2: Choose delivery/pickup and provide additional instructions
+            modalBody.innerHTML = `
+                <h5>Order Form - Step 2 of 4</h5>
+                <div class="mb-3">
+                    <label for="dateOfOrder" class="form-label">Date of Order</label>
+                    <input type="date" class="form-control" id="dateOfOrder" required>
+                </div>
+                <div class="mb-3">
+                    <label>Delivery/Pickup Preference</label><br>
+                    <input type="radio" id="delivery" name="deliveryPreference" value="delivery" onchange="toggleDeliveryPickup('delivery')">
+                    <label for="delivery">Delivery</label>
+                    <input type="radio" id="pickup" name="deliveryPreference" value="pickup" onchange="toggleDeliveryPickup('pickup')">
+                    <label for="pickup">Pickup</label>
+                </div>
+                <div id="deliveryAddress" class="mb-3" style="display: none;">
+                    <label for="address" class="form-label">Delivery Address</label>
+                    <input type="text" class="form-control" id="address" placeholder="Enter delivery address">
+                </div>
+                <div id="pickupLocation" class="mb-3" style="display: none;">
+                    <label for="pickupLocation" class="form-label">Pickup Location</label>
+                    <input type="text" class="form-control" id="pickupLocation" placeholder="Enter pickup location">
+                </div>
+                <div class="mb-3">
+                    <label for="specialInstructions" class="form-label">Special Instructions</label>
+                    <textarea class="form-control" id="specialInstructions" rows="3" placeholder="Enter any special instructions"></textarea>
+                </div>
+                <button type="button" class="btn btn-secondary me-2" onclick="backStep()">Back</button>
+                <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+            `;
+        } else if (step === 3) {
+            // Step 3: Choose products with quantity selection
+            modalBody.innerHTML = `
+                <h5>Order Form - Step 3 of 4</h5>
+                <div class="mb-3">
+                    <label for="productSelection" class="form-label">Product Selection</label><br>
+                    <div class="form-check">
+                        <input type="checkbox" id="product1" name="product" value="Diwata Pares Overload" class="form-check-input">
+                        <label for="product1" class="form-check-label">Diwata Pares Overload</label>
+                        <input type="number" id="quantity1" name="quantity" min="1" value="1" class="form-control ms-2" style="width: 70px;">
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="product2" name="product" value="Diwata Fried Siken" class="form-check-input">
+                        <label for="product2" class="form-check-label">Diwata Fried Siken</label>
+                        <input type="number" id="quantity2" name="quantity" min="1" value="1" class="form-control ms-2" style="width: 70px;">
+                    </div>
+                    <!-- Add more product checkboxes here -->
+                </div>
+                <button type="button" class="btn btn-secondary me-2" onclick="backStep()">Back</button>
+                <button type="button" class="btn btn-primary" onclick="placeOrder()">Place Order</button>
+            `;
+        }
+
+        currentStep = step;
+    }
+
+    function openOrderModal() {
+        currentStep = 1;
+        renderModalContent(currentStep);
+        const modal = new bootstrap.Modal(document.getElementById('orderModal'));
+        modal.show();
+    }
+
+    function nextStep() {
+        renderModalContent(currentStep + 1);
+    }
+
+    function backStep() {
+        renderModalContent(currentStep - 1);
+    }
+
+    function toggleDeliveryPickup(type) {
+        const deliveryAddress = document.getElementById('deliveryAddress');
+        const pickupLocation = document.getElementById('pickupLocation');
+
+        if (type === 'delivery') {
+            deliveryAddress.style.display = 'block';
+            pickupLocation.style.display = 'none';
+        } else if (type === 'pickup') {
+            deliveryAddress.style.display = 'none';
+            pickupLocation.style.display = 'block';
+        }
+    }
+
+    function placeOrder() {
+        // Close the Order Form modal if open
+        const orderModal = document.getElementById('orderModal');
+        const bootstrapModal = bootstrap.Modal.getInstance(orderModal);
+        if (bootstrapModal) {
+            bootstrapModal.hide();
+        }
+
+        // Simulate loading spinner for 3 seconds
+        const placeOrderButton = document.querySelector('.btn-primary');
+        placeOrderButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Placing Order...';
+        placeOrderButton.disabled = true;
+
+        setTimeout(function() {
+            // After 3 seconds, show payment success modal
+            const modal = new bootstrap.Modal(document.getElementById('paymentSuccessModal'));
+            modal.show();
+
+            // Reset the "Place Order" button
+            placeOrderButton.innerHTML = 'Place Order';
+            placeOrderButton.disabled = false;
+
+            // Reset modal content to initial step
+            renderModalContent(1);
+        }, 3000);
+    }
+</script>
+
 </body>
 </html>
