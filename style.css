@@ -1,16 +1,25 @@
 
             /* Custom CSS for background image section */
             .bg-image {
-            background-image: url('./assets/img/diwata-3.jpg'); /* Relative path to the image */
-            background-repeat: no-repeat;
-            background-size: cover;
-            height: 100vh; /* Full viewport height */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center; /* Center text horizontally */
-        }
+                /* Background image */
+                background-image: url('./assets/img/diwata-3.jpg'); /* Relative path to the image */
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 100vh; /* Full viewport height */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                text-align: center; /* Center text horizontally */
+            
+                /* Gradient overlay */
+                background: 
+                    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* Adjust the alpha (last value) for transparency */
+                    url('./assets/img/diwata-3.jpg'); /* This ensures the image remains visible */
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            
 
         /* Media query for medium screens */
         @media (max-width: 768px) {

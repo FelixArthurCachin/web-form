@@ -33,12 +33,14 @@
                 <h5>Order Form - Step 2 of 4</h5>
                 <form id="orderFormStep2" class="needs-validation" novalidate>
                     <div class="mb-3">
-                        <label for="dateOfOrder" class="form-label">Date of Order</label>
+                        <label for="dateOfOrder" class="col-sm-3 col-form-label">Date of Order</label>
+                        <div class="col-sm-4">
                         <input type="date" class="form-control" id="dateOfOrder" required>
                         <div class="invalid-feedback">Please select a date for the order.</div>
                     </div>
+                    </div>
                     <div class="mb-3">
-                        <label>Delivery/Pickup Preference</label><br>
+                        <label class="form-label">Preference</label><br>
                         <input type="radio" id="delivery" name="deliveryPreference" value="delivery" onchange="toggleDeliveryPickup('delivery')" required>
                         <label for="delivery">Delivery</label>
                         <input type="radio" id="pickup" name="deliveryPreference" value="pickup" onchange="toggleDeliveryPickup('pickup')" required>
@@ -47,7 +49,7 @@
                     </div>
                     <div id="deliveryAddress" class="mb-3" style="display: none;">
                         <label for="address" class="form-label">Delivery Address</label>
-                        <input type="text" class="form-control" id="address" placeholder="Enter delivery address" required>
+                        <input type="text" class="form-control" id="address" placeholder="House #/Street, Barangay, City/Municipality" required>
                         <div class="invalid-feedback">Please enter the delivery address.</div>
                     </div>
                     <div id="pickupLocation" class="mb-3" style="display: none;">
@@ -56,7 +58,7 @@
                         <div class="invalid-feedback">Please enter the pickup location.</div>
                     </div>
                     <div class="mb-3">
-                        <label for="specialInstructions" class="form-label">Special Instructions</label>
+                        <label for="specialInstructions" class="form-label">Additional Note(Optional)</label>
                         <textarea class="form-control" id="specialInstructions" rows="3" placeholder="Enter any special instructions"></textarea>
                     </div>
                     <button type="button" class="btn btn-secondary me-2" onclick="backStep()">Back</button>
