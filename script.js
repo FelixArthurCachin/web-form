@@ -21,7 +21,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="phone" class="form-label">Phone Number</label>
-                    <input type="tel" class="form-control" id="phone" placeholder="0900000000" required>
+                    <input type="tel" class="form-control" id="phone" placeholder="09000000000" required>
                     <div class="invalid-feedback">Please enter a valid 11-digit phone number.</div>
                 </div>
                 <button type="button" class="btn btn-primary" onclick="validateStep1()">Next</button>
